@@ -1,11 +1,37 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{geometry}
+
+\makeatletter
+%same as \subsubsection but @level 4
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+{-3.25ex\@plus -lex \@minus -.2ex}%
+{1.5ex \@plus .2ex}%
+{\normalfont\normalsize\bfseries}}
+
+% number \paragraph
+\setcounter{secnumdepth}{4}
+
+\makeatother
 
 
-\title{VISION DOCUMENT}
+\title{\normalsize \texts{SOEN 6481 Summer 2021}\\ [1.0cm]
+\large \textbf{\uppercase{Vision Document}}\\
+\large \textbf{\uppercase{E-Concordia Drive}}
+\normalsize \vspace*{2\baselineskip}\\
+\textbf{Disclaimer:}
+\textit{"I certify that this submission is the original and meets the Faculty's Expectations of Originality"}
+}
+%Title and Front page
 
-\author{Tavtej Singh Lehri}
-\date{July 2021}
+\author{{Tavtej Singh Lehri}\\
+StudentID - 40121745}
+
 \begin{document}
 
 
