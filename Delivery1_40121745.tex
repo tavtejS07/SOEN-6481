@@ -51,6 +51,7 @@ Admin edits, comments, approves and publishes  lessons uploaded by a trainer.
 Once approved the content is ready to be viewed by students.
 
 \subsection{References}
+[1] Improvement of Detection for Warning Students in E-learning Using Web Cameras - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/A-block-diagram-of-the-e-learning-system\_fig1\_275541493 [accessed 13 Jul, 2021]
 
 
 \section{Positions}
@@ -144,7 +145,12 @@ Students &  & & \\ \hline
 \begin{tabular}{|p{2.5cm}|p{2.5cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
 \hline
 \textbf{Need} & \textbf{Priority} & \textbf{Concerns} & \textbf{Current Solution} & \textbf{Proposed Solution}\\ \hline
-Who & What & & &\\ \hline
+
+Login Page & High &  & None & Create a sign-up page where users can create profiles as per their roles.\\ \hline
+Receive notification when new video is uploaded & High & Volume of notifications & & \\ \hline
+Responsive Website & Medium & Website should respond to user's behavior and environment. & None & Use of HTML and CSS style coding for the front end. \\ \hline
+Stable and Bug Free website & High & There will be defect leakage & None & Use the extensive testing technique, track the defects in JIRA, perform regression testing after each iteration. \\ \hline
+
 
 \end{tabular}
 
@@ -152,6 +158,14 @@ Who & What & & &\\ \hline
 \section{Product Overview}
 
 \subsection{Product Perspectives}
+Below is the block diagram for the e-learning website:
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[scale=0.4]{1.png}
+    \caption{A block diagram of the e-learning system [1] }
+    \label{fig:my_label}
+\end{figure}
+
 
 \subsection{Assumptions and Dependencies}
 
@@ -162,9 +176,55 @@ Who & What\\ \hline
 
 \end{tabular}
 
-
-
 \section{Product Features}
+\textbf{Below listed are all the high level features of the website:}
+\begin{enumerate}
+    \item \textbf{Sign-Up:} All the end users should be able to create an account.
+    \item \textbf{Login:} After the sign-up is complete, students will be given a studentID and traffic No, using this they can login. Teachers and Admins can login with the username and password provided by the institute.\\[0.5ex]
+    
+    \textbf{Students:}
+    \item \textbf{Dashboard:}The dashboard page should have the general information about the type of license a student is training for.
+    \item There will be 3 status of the modules: Completed,In Progress and Pending. Students cannot bypass the lessons and have to go sequentially.
+    \item \textbf{Start Again} feature allows the student to preview the lesson contents again. Note: it will be available only after the lesson is complete.
+    \item Lesson icons will have the slides count and the duration from the lesson content. This will help students track their individual lesson progress as well.
+    \item Left pane will have the Student ID and Examination ID along with next exam date, expiry dates of lesson and fees.
+    \item Lessons will have an interactive screen. This will enable touchscreen device users no navigate easily. Videos will adjust to screen orientation of the mobile device.
+    \item Description box will contain any extra information that the students nee to know.
+    \item Volume adjustment button will be provided for the users to keep volume as per their need.
+    \item Start button starts the video slides. Once the start button is clicked two new buttons will appear which will help students navigate through slides
+    \item Students when they logout will resume from where they left and will not have to start over again.
+    \item Quiz related to the lesson will be enabled once a student completes their training video.
+    \item Correct answer will be highlighted in green when students select the answer. If the student answer a wrong answer the answer will be marked in red and correct answer will be displayed in green.
+    \item For match the following and rearranging the correct sequence, drag and drop feature will be provided.\\[0.5ex]
+    
+    \textbf{Trainers and Admins:}
+    \item Dashboard page for the teacher login will have navigation pane with following links: Home, All Lessons, Pending, Drafts, Published, Notification. Navigation pane will be on all the pages in teacher account.
+    \item Quick navigation will show the categorized number of all lessons, drafts, pending, notifications
+    \item All lessons link will take the users to all lessons page where the trainer will have manage lessons button.
+    \item Manage lessons button will open a popover form where teacher will input the Lesson name(drop down menu as per SRS from EDC server), description, language (language listing as per SRS from EDC server) and icon to upload(using choose file button).
+    \item Submit button in the popover form enables trainer to insert the content to lesson.
+    \item A new pane is created in all lessons page for the lesson created with 5 buttons namely, Slide, Quiz,Lesson Status, Edit and Delete.
+    \item Slide button is used for slide creation, Quiz button for quiz creation, lesson status shows the status of lesson in creation(Draft, Pending and Published). Edit and Delete.
+    \item Plus button is used to expand the lesson and see the contents of it and lesson information pane on the right.
+    \item when clicked on slide button the website will open an slide editor popover form.
+    \item Media type in slide form will be audio, video and image. Slide duration is auto detected.
+    \item Media file can be selected using the choose file button. Slide description is suitable for LTR or RTL.
+    \item Slides are added after the user clicks on submit. The entry will have an icon for the notification on changes done by admin.
+    \item Addition of Quiz also opens a popover pane. Quiz type will enable to select the type of quiz from, true/false, Right Answer, Drag and Drop and Reorder.
+    \item For True/False space will be provided for trainer to type the question and provide the correct answer using dropdown.
+    \item For choose correct answer Area to type question is given or it can be based on media(A/V or Image). 4 Answers will be typed in and the correct answer radio button will be selected by trainer.
+    \item For drag and drop Questions will be typed in and matching answer will be given. System will shuffle the answers once the student is attempting the quiz.
+    \item When trainer click on draft link on the navigation pane system navigates to the draft lessons page, where all the drafts are listed.
+    \item When trainer click on published link on the navigation pane system navigates to the published lessons page, where all the published are listed.
+    \item When the trainer click on notification, they will be navigated to the notifications page. It will display all the updates done either by trainer or admin.
+    \item There will be 3 status of the updates: lesson updated(lesson creation, pending, draft and published), comment updated(when trainer updates admin comments), quality comment(from admin for trained)
+    \item View button against the comments will take trainer to the slides having admin comments on it. Status of comment will change to done once changes are made and admin will be notified.
+    \item Trainers will be allowed to create versions of the lessons they created using the edit button in the lesson management.
+    \item If one trainer is busy creating a lesson, the trainer who is free will be given a lesson editing access and it will be displayed which trainer is working on which lesson.
+    \item Once the lesson is published trainer will loose access to edit or delete the slide and admin will have control over it.
+    \item Admin has access to accept/reject students. Once a trainer leaves the school, admin can remove them from the system.
+    
+\end{enumerate}
 
 \section{Other Product Requirements}
 
