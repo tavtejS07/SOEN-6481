@@ -7,6 +7,7 @@
 \usepackage{tabularx}
 \usepackage{geometry}
 \usepackage{changepage}
+\usepackage{longtable}
 
 
 \makeatletter
@@ -44,14 +45,17 @@
 
 
 \section{Introduction}
-The purpose of this vision document is to collect and analyze all assorted ideas that have come up to define the system, its requirements with respect to consumers. Also, we shall predict and sort out how we hope this product will be used in order to gain a better understanding of the project, outline concepts that may be developed later, and document ideas that are being considered, but may be discarded as the product develops.\normalsize\vspace*{1\baselineskip}\\
-In short, the purpose of this SRS document is to provide a detailed overview of our software product, its parameters and goals. This document describes the project's target audience and its user interface, hardware and software requirements. It defines how our client, team and audience see the product and its functionality. Nonetheless, it helps any designer and developer to assist in software delivery life-cycle (SDLC) processes.\normalsize\vspace*{1\baselineskip}\\
+The purpose of this vision document is to collect and analyze all assorted ideas that have come up to define the system, its requirements with respect to end users. Also, we shall predict and sort out how we hope this product will be used in order to gain a better understanding of the project, outline concepts that may be developed later, and document ideas that are being considered, but may be discarded as the product develops.[1]\normalsize\vspace*{1\baselineskip}\\
+In short, the purpose of this vision document is to provide a detailed overview of our software product, its parameters and goals. This document describes the project's target audience and its user interface, hardware and software requirements. It defines how our client, team and audience see the product and its functionality. Nonetheless, it helps any designer and developer to assist in software delivery life-cycle (SDLC) processes.[1]\normalsize\vspace*{1\baselineskip}\\
 E-Concordia drive is an E-learning platform for students to learn and practice driving lessons to obtain a license. It has got three main users: Trainer, Student and Admin.
 Admin edits, comments, approves and publishes  lessons uploaded by a trainer.
 Once approved the content is ready to be viewed by students.
 
 \subsection{References}
-[1] Improvement of Detection for Warning Students in E-learning Using Web Cameras - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/A-block-diagram-of-the-e-learning-system\_fig1\_275541493 [accessed 13 Jul, 2021]
+[1] R.Morales, 1b-p1 Vision Document, Available on:
+https://moodle.concordia.ca/moodle/mod/resource/view.php?id= 2764233 [Current July, 2021]\\
+
+[2]Improvement of Detection for Warning Students in E-learning Using Web Cameras - Scientific Figure on ResearchGate. Available from: https://www.researchgate.net/figure/A-block-diagram-of-the-e-learning-system\_fig1\_275541493 [accessed 13 Jul, 2021]
 
 
 \section{Positions}
@@ -88,16 +92,17 @@ Once approved the content is ready to be viewed by students.
 \subsection{Stakeholder Summary}
 
 
-\begin{tabular}{|p{4.5cm}|p{4.5cm}|p{6.5cm}|}
+\begin{longtable}{|p{4.5cm}|p{4.5cm}|p{6.5cm}|}
 \hline
 \textbf{Name} & \textbf{Description} & \textbf{Responsibilities} \\ \hline
+Product Owner & A person who tells his needs to the business analyst & Should coordinate with BA to communicate the needs of business from the website.\\ \hline
 Business Analyst & Is a person responsible for the SRS document and understanding the business needs & Should prepare SRS document and any changes to it, understand the business requirements, understand the customer requirements, layout clear and precise requirements for the developers and testers.\\ \hline
 Architects & Acts as development lead and is a guy who has knowledge of MVC architecture  & Create the MVC style architecture for the developers, communicate with business and clients to design and execute solutions. Make executive software design decisions\\ \hline
 Developers & Coders of the website & They are responsible to write a stable, understandable and easily executable PHP language based website. Should be familiar with MVC architecture. Should be able to read and understand requirements from the requirement document\\ \hline
 Database Admins & Is a person who maintains and develops database for the application. & Should be familiar with MySQL database. Responsible for creating and maintaining the database. Should have in-depth knowledge of SQL.\\ \hline
 QA/Test Analyst & Is a person who can find bugs in the application and help achieve stable application & Should be familiar with JIRA, can create test suite, test plan, test cases.\\ \hline
 Marketing \& Advertising & A firm responsible to bring the application to end user. & Select the target users, advertise to the users, maintain social media advertising and help in SEO. \\ \hline
-\end{tabular}
+\end{longtable}
 
 
 \subsection{User Summary}
@@ -105,11 +110,10 @@ Marketing \& Advertising & A firm responsible to bring the application to end us
 \begin{tabular}{|p{3.5cm}|p{3.5cm}|p{4.5cm}|p{4cm}|}
 \hline
 \textbf{Name} & \textbf{Description} & \textbf{Responsibilities} & \textbf{Stakeholder}\\ \hline
-Students &  & & \\ \hline
-Teachers &  & & \\ \hline
-Admin &  & & \\ \hline
-Students &  & & \\ \hline
-Students &  & & \\ \hline
+Students & Is a person who is enrolled for the driving lesson & Should register for the lessons, attend all the lectures and attempt all the quizzes & Self-Represented \\ \hline
+Trainer & Is a person who takes the lessons & Is responsible for creating all the content for the students to view & Self-Represented \\ \hline
+Admin & Is a person who maintains the content and users  & Is responsible for approval of all the contents and approval of students and trainers & Self-Represented \\ \hline
+Marketer \& Advertiser & Is a person who advertises the website & Obtains the information to be advertised from the website and admins & Self-Represented.\\ \hline
 
 \end{tabular}
 
@@ -142,27 +146,30 @@ Students &  & & \\ \hline
 \subsection{Key Stakeholder or Users Needs}
 
 
-\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
+\begin{longtable}{|p{2.5cm}|p{2.5cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
 \hline
 \textbf{Need} & \textbf{Priority} & \textbf{Concerns} & \textbf{Current Solution} & \textbf{Proposed Solution}\\ \hline
 
-Login Page & High &  & None & Create a sign-up page where users can create profiles as per their roles.\\ \hline
-Receive notification when new video is uploaded & High & Volume of notifications & & \\ \hline
+Login Page & High & Login page should be secure & None & Login page will use captcha and unique userIDs and password with specific criterion.\\ \hline
+Receive notification when new video is uploaded & High & Volume of notifications & None & Users will be sent push notifications when changes are made or new content is available\\ \hline
 Responsive Website & Medium & Website should respond to user's behavior and environment. & None & Use of HTML and CSS style coding for the front end. \\ \hline
 Stable and Bug Free website & High & There will be defect leakage & None & Use the extensive testing technique, track the defects in JIRA, perform regression testing after each iteration. \\ \hline
+Good quality for audio and video & High & A/V should work on all kinds on internet bandwidths& none & users will be provided an auto pixel setup which will adjust the quality depending on internet quality. \\ \hline
+Data to be stored & High & All data on the website to be stored in a database & using paper trails & a centralized database will be used to store all the information. \\ \hline
+An account to do the quality check of content & Medium & Admin has knowledge of content & None & Train the admin to use website and ask him to complete advanced driving training.\\ \hline
+Marketing data & High & Marketers and advertisers should have access to the content & none & Marketers and Advertisers should coordinate with the admin to collect the necessary data. They should use SEO/SCO to promote the website in search engines.\\ \hline
 
-
-\end{tabular}
+\end{longtable}
 
 
 \section{Product Overview}
 
 \subsection{Product Perspectives}
-Below is the block diagram for the e-learning website:
+This product will setup the servers using apache servers. The servers in the backend will have interactive session between the code and the database. All the data will be stored in the MySQL database. User will have the active web connection. Using that users will use the set URL parameters to access the website on their PC/mobile devices. Below is the block diagram for the e-learning website:
 \begin{figure}[htb!]
     \centering
     \includegraphics[scale=0.4]{1.png}
-    \caption{A block diagram of the e-learning system [1] }
+    \caption{A block diagram of the e-learning system [2] }
     \label{fig:my_label}
 \end{figure}
 
@@ -172,7 +179,10 @@ Below is the block diagram for the e-learning website:
 \begin{tabular}{|p{5.5cm}|p{6.5cm}|}
 \hline
 \textbf{Assumptions} & \textbf{Dependencies} \\ \hline
-Who & What\\ \hline
+It is assumed that there are enough resources to carry out the development of the project & In case of sick leaves or vacations a backup should be planned.\\ \hline
+The server downtime should be planned for maintenance & Maintenance team is available and users are sent email for the downtime.\\ \hline
+The website will work on latest versions Google Chrome and Safari & If any browser is discontinued then the document will change to introduce the new browser.\\ \hline
+The developers have knowledge of PHP, HTML and CSS and MVC architecture & If not then the developers need to be trained which will add time to the project and scope will be revisited.\\ \hline
 
 \end{tabular}
 
@@ -227,5 +237,11 @@ Who & What\\ \hline
 \end{enumerate}
 
 \section{Other Product Requirements}
+\begin{enumerate}
+    \item Performance and Load testing to be done considering 350000 users at a time.
+    \item A one time website navigation help to be provided for the users visiting for the first time.
+    \item A help section to be provided which will have the website details for the users and ContactUS details.
+    \item Product should comply with the existing HTML, TCP/IP and other web standards. 
+\end{enumerate}
 
 \end{document}
