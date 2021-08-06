@@ -1,0 +1,135 @@
+\documentclass[fuzz]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{oz}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{changepage}
+\usepackage{longtable}
+
+
+\makeatletter
+%same as \subsubsection but @level 4
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+{-3.25ex\@plus -lex \@minus -.2ex}%
+{1.5ex \@plus .2ex}%
+{\normalfont\normalsize\bfseries}}
+
+% number \paragraph
+\setcounter{secnumdepth}{4}
+
+\makeatother
+
+
+\title{\normalsize \texts{SOEN 6481 Summer 2021}\\ [1.0cm]
+\large \textbf{\uppercase{Vision Document}}\\
+\large \textbf{\uppercase{E-Concordia Drive}}
+\normalsize \vspace*{2\baselineskip}\\
+\author{{Tavtej Singh Lehri\\
+StudentID - 40121745}}
+
+\textbf{Disclaimer:}
+\textit{"I certify that this submission is the original and meets the Faculty's Expectations of Originality"}
+}
+%Title and Front page
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{Propositional Logic}
+\subsection{Translate requirements into propositional logic}
+Consider 'Software in debug mode' as P, 'Access to database' as Q and 'Save New Records' as R.\\[0.3cm]
+\textbf{R1.1} P $\rightarrow$ $\neg$(Q) \textbf{OR} $\neg$(P) $\lor$ $\neg$(Q)\\[0.3cm]
+\textbf{R1.2} Q $\rightarrow$ R \textbf{OR} $\neg$(Q) $\lor$ R\\[0.3cm]
+\textbf{R1.3} $\neg$(R) $\rightarrow$ $\neg$(P) \textbf{OR} R $\lor$ $\neg$(P)
+
+\subsection{Consistency of requirements and truth table}
+
+\section{Z specification Language}
+\subsection{Non Robust Z-Schema}
+
+\noindent Let $MEETINGID$ be set of all meeting IDs, $DATETIME$ be set of dates and time-slots available and $NAME$ be set of all the employee names:
+
+\begin{zed}
+[MEETINGID,DATETIME,NAME]
+\end{zed}
+
+\textbf{1}
+\begin{schema}{AddMeeting}
+\Delta MeetingPlanner \\
+participants? : NAME \\
+date? : DATETIME
+\where
+participants? \notin known
+\also
+when' = when \bigcup (name?\pfun date?)
+\end{schema}
+
+\textbf{2}
+\begin{schema}{FindMeeting}
+\Xi MeetingPlanner \\
+participants? : NAME\\
+date! : DATETIME
+\where
+name? \in known
+\also
+date! = when(participants)
+\end{schema} \\[2.0cm]
+
+\subsection{Robust Z-Schema}
+\textbf{1.}
+\textbf{AddMeeting $\wedge$ Success}
+\begin{schema}{AddMeeting}
+\Delta MeetingPlanner \\
+participants? : NAME \\
+date? : DATETIME \\
+result! : REPORT
+\where
+participants? \notin known
+\also
+when' = when \bigcup (name?\pfun date?)
+\also
+result!=ok
+\end{schema}
+
+\textbf{AddMeeting $\wedge$ AlreadyKnown}
+\begin{schema}{AddMeeting}
+\Delta MeetingPlanner \\
+participants? : NAME \\
+date? : DATETIME \\
+result! : REPORT
+\where
+participants? \notin known
+\also
+when' = when \bigcup (name?\pfun date?)
+\also
+meeting?  \in scheduled
+\also
+result!=already_known
+\end{schema}
+
+\textbf{2.}
+\textbf{RAddMeeting = (AddMeeting $\wedge$ Success) $\lor$ AlreadyKnown}
+\begin{schema}{RAddMeeting}
+\Delta MeetingPlanner \\
+participants? : NAME \\
+date? : DATETIME \\
+result! : REPORT
+\where
+participants? \notin known
+\also
+when' = when \bigcup (name?\pfun date?)
+\also
+result!=ok
+\end{schema}
+
+
+
+\end{document}
