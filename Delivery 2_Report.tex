@@ -105,11 +105,35 @@
 \end{tabular}
 
 \section{Task 5 - Risk Management}
-As seen in Task 4 for the Quantitative Assessment Approval of content satisfies 88\% of the cases and viewing of the content satisfies 64\%. If the content approval take time there will be a hit on viewing of the content. This may lead to students dropping the courses and going to competitor which has a better system. The money on line will be in the range of 900\$ per student.\\
-
-Introduction of new requirements can be used to mitigate the risks. This may include hiring some staff to do a quick quality check on the content and approve at faster rate.\\
-
-Risk can also be reduced by allowing trainers to quality check their own content.\\
+\textbf{We identify risks as below:}\\
+\begin{enumerate}
+    \item Component Inspection
+    \begin{enumerate}
+        \item \textbf{Student Module:} User should be above 16 years to obtain learner driver's permit and above 18 years to obtain full driver's permit. Student's video progress is not saved and they have to start videos again from the start. Student's response to quiz is not saved.
+        \item \textbf{Trainer Module:}Trainer should have the license to teach, which is issued by government. Trainer's comments on the content is not posted or are not viewed by the admin.
+        \item \textbf{Admin Module:}Risk will be that admin is not a certified quality assurance, so the content approved might be wrong. Trainer gets ambiguous comments from admin.
+    \end{enumerate}
+    \item Risk Tree:
+    \begin{figure}[htb!]
+    \centering
+    \includegraphics[scale=0.4]{D2.png}
+    \caption{Risk Tree}
+    \label{fig:my_label}
+    \end{figure}\\[0.3cm]
+    
+    \item Risk Checklist
+    \begin{enumerate}
+        \item Quantitative Risk Assessment \\
+        \begin{tabular}{|p{4.5cm}|p{4.5cm}|p{4.5cm}|} \hline
+        Risk&Likelyhood(1-10)&Rationale\\ \hline
+        Answers to quiz not saved&5&This can happen due to loss of internet connection or a bug in the app, which questions stability.\\ \hline
+        Admin's conmmets are ambiguous&6&Admin is not a trained professional in giving driving license so they might not be able to convey what is wrong with content.\\ \hline
+        Loading video takes long time&8&Video content is not parsed properly which will question the system being less interactive and there might be lost of interest from students.\\ \hline
+        Loss of life, students, trainers or admin&10&If admin's life is lost there will be no one to handover charge to new admin, it will take extra amount of money to find new teacher in case a teacher is lost.\\ \hline
+        Data Leakage&7&Student's personal data is lost which questions database security.\\ \hline
+        \end{tabular}
+    \end{enumerate}
+\end{enumerate}
 
 \section{Appendix}
 \begin{tabular}{|p{5.5cm}|p{6.5cm}|}

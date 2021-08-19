@@ -1,0 +1,250 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{geometry}
+\usepackage{changepage}
+\usepackage{longtable}
+
+
+\makeatletter
+%same as \subsubsection but @level 4
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+{-3.25ex\@plus -lex \@minus -.2ex}%
+{1.5ex \@plus .2ex}%
+{\normalfont\normalsize\bfseries}}
+
+% number \paragraph
+\setcounter{secnumdepth}{4}
+
+\makeatother
+
+
+\title{\normalsize {SOEN 6481 Summer 2021}\\[1.0cm]
+\large \textbf{\uppercase{Supplementary specification and glossary}}\\
+\large \textbf{\uppercase{SRS}} \\
+\huge \textbf{\uppercase{e-concordia drive}}\\
+\normalsize \vspace*{2\baselineskip}
+}
+\author{{Tavtej Singh Lehri\\
+StudentID - 40121745}}
+\date{August 17,2021}
+%Title and Front page
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\centering{\textbf{\huge{Supplementary Specification}}}
+
+\RaggedRight
+\section{ Introduction}
+In this section we define the purpose, scope, all the definitions, acronyms and abbreviations and references.
+\subsection{ Purpose}
+The purpose of this document is define the requirements of E-Concordia Drive website, which is an e-learning platform where students prepare for their driving exams. This supplementary specification document lists the requirements that are not listed in the use case model document. The UCM and SS documents capture the whole requirements and form a final SRS.
+\subsection{ Scope}
+This SS documents applies to E-Concordia Drive website which will be developed by Chronos Tech Solutions. They will develop a client server system which will create the interface between mobile devices and EDC servers.\\[0.2cm]
+
+E-Concordia drive is an E-learning platform for students to learn \& practice driving lessons to obtain a license. It has got three main Users: Trainer, Student and Administrator (quality). Admin edits, comments, approves and publishes  lessons uploaded by a trainer.  Once approved the content is ready to be viewed by students.\\[0.2cm]
+This specification defines the non-functional requirements of the system; such as reliability, usability, performance, and supportability as well as functional requirements that are common across a number of use cases.
+\subsection{ Definitions, Acronyms, Abbreviations}
+Project Glossary is defined in \hyperref[sec:Glossary]{section 9}
+%\nameref{sec:Glossary}
+%\autoref{sec:Glossary}
+\subsection{ References}
+\begin{enumerate}
+    \item {\footnotesize REST API Tutorial \textit{https://restfulapi.net/rest-architectural-constraints/}}
+    \item {\footnotesize T.S Lehri, \textit{Vision Document E-Concordia Drive}, Summer 2021 SOEN 6481}
+    \item {\footnotesize Dr. R.Morales, \textit{Trainer Wireframe, https://drive.google.com/drive/folders/1ZwPfXS0qTLdKUHz-8RnGFNUoWHh_gsec},\\SOEN 6481}
+    \item {\footnotesize Dr. R.Morales, \textit{Student Wireframe, https://drive.google.com/drive/folders/1ZwPfXS0qTLdKUHz-8RnGFNUoWHh_gsec},\\SOEN 6481}
+    \item {\footnotesize Dr. R.Morales, \textit{Admin Wireframe, https://drive.google.com/drive/folders/1ZwPfXS0qTLdKUHz-8RnGFNUoWHh_gsec},\\SOEN 6481}
+    \item {\footnotesize Use Case Model - Student Registration \textit{UC001}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Traner Registration \textit{UC002}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Read Content of Dashboard \textit{UC003}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - View Videos by students \textit{UC004}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Students take quiz \textit{UC005}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Create Lesson \textit{UC006}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Insert Content to Lesson \textit{UC007}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Pending Lessons \textit{UC008}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Draft Lessons \textit{UC009}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Edit/Delete Lessons \textit{UC010}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Notification for any Changes \textit{UC011}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Admin Dashboard \textit{UC012}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Manage Trainer \textit{UC013}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Manage Students \textit{UC014}, Summer 2021, E-Concordia Drive}
+    \item {\footnotesize Use Case Model - Manual Registrations \textit{UC015}, Summer 2021, E-Concordia Drive}
+    
+\end{enumerate}
+
+\section{ Functionality}
+This section lists the functional requirements that are common to more than one use case.
+\subsection{Error Logs}
+\begin{enumerate}
+    \item A system error log should be maintained and shared with maintenance every night.
+    \item All the errors will be logged in ERR\_LOGS table of the database 
+    \item Error messages should have codes and description like ERROR123 - Taking more than usual buffer time.
+    \item Error log file will be sent by system 2 hours before maintenance time and errors will be resolved during maintenance time.
+\end{enumerate}
+
+\subsection{Remote Access}
+All the functionalities should be available to the users if they have a supporting device and internet connection.
+
+\section{ Usability}
+This section includes all the requirements that affect the usability of the website/app(for future).
+\subsection{Training Time}
+\begin{enumerate}
+    \item All the new trainers should be provided 1 week training to familiarize them with the website.
+    \item All the students will be given walk-through when they first visit the website.
+\end{enumerate}
+
+\subsection{Industry Standards}
+Website will follow IBM CUA standards and IEC Reliability standards for touchscreen devices.
+
+\subsection{Chat Bots}
+There will be a chat bot on each page and users can chat with the CSR if they encounter an issue. 
+
+\subsection{Multiple Systems/Web-Browser Support}
+If a mobile app is made it should be working on below systems:
+\begin{enumerate}
+    \item iOS(iPhone, iPad)
+    \item MacOSX (11.0 and up)
+    \item Android
+    \item Windows 8/10
+\end{enumerate}
+
+\section{ Reliability}
+This section lists down all the reliability requirements for the system.
+\subsection{Availability, MTBF, MTTR, MDR}
+\begin{enumerate}
+    \item \textbf{Availability:}
+    \begin{itemize}
+        \item System will be available 24/7 for all the users.
+        \item System will have a downtime of 2 hours on every $2\textsuperscript{nd}$ Saturday of the month for maintenance.
+        \item All the Error logs will be handled by maintenance team every day.
+    \end{itemize}
+    \item \textbf{Mean Time Between Failure:} MTBF shall exceed 500 hours.
+    \item \textbf{Mean Time to Repair:} MTTR should be 30 minutes
+    \item \textbf{Maximum bug or defect rate:} Maximum bug rate should be 5/KLOC. Categories of defects will be Critical, High Medium and Low(defined in glossary.
+\end{enumerate}
+
+
+\section{ Performance}
+This section will list down all the performance requirements of the system.
+\subsection{Response Time}
+System should be able to complete 90\% transactions in 3 minutes
+\subsection{Throughput}
+System should be able to complete 100 transactions per second.
+\subsection{Capacity}
+System should be able to handle 350000 customers at any given time.
+\subsection{Database/Server response time}
+The system shall provide access to the EDC server with no more than a 10 second latency.
+\subsection{Resource Utilization:} As it is a web application there will be very minimal resource utilization of a device. In future if an application is made it will require 200MB of disk space and enough storage space if downloadable resources are made available.
+
+\section{ Supportability}
+This section covers the supportability requirements of the system.
+\begin{enumerate}
+    \item System is supported on the readily web browsers in the market.
+    \item If an application is made in future it will be downloadable on devices supporting OS listed in subsection 3.4 .
+\end{enumerate}
+
+\section{ Design Constraints}
+This section lists the Design constraints of the system.
+\subsection{Languages Supported:}
+Videos uploaded will support English, Arabic, French, Hindi, Chinese, Italian for now. There will be a room for language support expansion.
+\subsection{Development tools:}
+Development tools used are \textbf{phpStrom} and \textbf{MySQL}.
+\subsection{Management tools:}
+\begin{enumerate}
+    \item \textbf{Defect Management:} JIRA
+    \item \textbf{CI/CD:} Github
+    \item \textbf{Documentation:} Overleaf/Latex
+\end{enumerate}
+\subsection{Architectural Constraints:}
+\begin{enumerate}
+    \item Because this is a client server based application, the client and server application must be able to evolve separately without any dependency on each other.
+    \item All the webpages should be cacheable to improve the performance on client end and better scalability on the server side.
+\end{enumerate}
+
+
+\section{ Online User Documentation and Help System Requirement}
+\begin{enumerate}
+    \item Screens should be interactive to make it easy to use on touch screen devices.
+    \item Contact us information should be provided.
+    \item A user should be guided through the system when they first login.
+    \item A help document should be in place for the help later on.
+\end{enumerate}
+
+\section{ Glossary}
+\label{sec:Glossary}
+\begin{longtable}{|p{4.5cm}|p{6.5cm}|}\hline
+    \textbf{Name} & \textbf{Description}  \\ \hline
+         User& End User of the system which includes student, trainer and admin\\ \hline
+         Student& Person who registers to prepare for the driving test.\\ \hline
+         Trainer& Person who is a driving instructor and creates content for students.\\ \hline
+         Admin& Person who is also a QA and manages the driving school.\\ \hline
+         Developer& Person responsible for the development of website\\ \hline
+         Tester& Person reponsible for testing the code\\ \hline
+         Data& \begin{itemize}
+             \item \textbf{Definition 1} All the content on website.
+             \item \textbf{Definition 2}Also details of users registered.
+         \end{itemize}\\ \hline
+         System& \begin{itemize}
+             \item \textbf{Definition 1} E-Concordis Drive Website
+             \item \textbf{Definition 2}A computer/mobile device
+         \end{itemize}\\ \hline
+         Server& The system which provides resources, data and services to other systems\\ \hline
+         Quality Check & To verify if the content uploaded is correct\\ \hline
+         Pending& Lesson is under review by the trainer and admin.\\ \hline
+         Draft& Initial stages where person workig on content can edit it.\\ \hline
+         Published& Content is made available for students.\\ \hline
+         \caption{Definitions.\label{long}}\\
+\end{longtable}
+
+\begin{longtable}{|p{4.5cm}|p{6.5cm}|}\hline
+    \textbf{Acronym} & \textbf{Description}  \\ \hline
+    MVC & Model View Controller \\ \hline
+    MTTR & Mean Time to Repair \\ \hline
+    MTBF & Mean Time to Failure \\ \hline
+    KLOC & Tjousand Lines of Code \\ \hline
+    IBM & International Business Machine \\ \hline
+    IEC & International Electrotechnical Commission \\ \hline
+    CUA & Common User Access\\ \hline
+    SRS & Software Requirement Specifications\\ \hline
+    SS & Supplementary Specifications\\ \hline
+    LTR and RTL & Left-to-Right and Right-to-Left\\ \hline
+    UCM& Use Case Model\\ \hline
+    UML& Unified Modelling Language\\ \hline
+         \caption{Acronyms and Abbreviation.\label{long}}\\
+\end{longtable}
+
+\section{Appendix}
+\begin{table}[htb!]
+    \centering
+    \begin{tabular}{|p{5.5cm}|p{6.5cm}|}\hline
+    \textbf{Section} & \textbf{Time Spent} \\ \hline
+    Introduction & 1 hours \\ \hline
+    Functionality & 1 hours \\ \hline
+    Usability & 1 hours \\ \hline
+    Reliability & 0.5 hours \\ \hline
+    Performance & 1 hours \\ \hline
+    Supportability & 0.5 hours \\ \hline
+    Design Constraints & 1 hours \\ \hline
+    ReliaOnline User Documentation and Help System Requirementbility & 0.5 hours \\ \hline
+    Glossary & 1 hours \\ \hline
+    \textbf{Total} & \textbf{7.5 hours} \\ \hline
+\end{tabular}
+    \caption{Appendix}
+    \label{tab:my_label}
+\end{table}
+
+\end{document}
